@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="container">
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a class="active" href="#news">WeatherApp</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+          
+        <fieldset>
+            <form action="/" method="post">
+                <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+                <input name="token" type="text" class="ghost-input" placeholder="Enter the API">
+                <input type="submit" class="ghost-button" value="Get Weather">
+            </form>
+            <% if(weather !==null && weather !== undefined){ %>
+                <p>
+                    <%= weather %>
+                </p>
+                <% } %>
+
+                    <% if(error !==null){ %>
+                        <p>
+                            <%= error %>
+                        </p>
+                        <% } %>
+        </fieldset>
+    </div>
+</body>
+
+</html>
