@@ -8,7 +8,7 @@ import {
   Searchbox,
   Resultbox,
   Result,
-  FirstResult
+  FirstResult,
 } from "./Weather.Style";
 
 function Weather() {
@@ -39,8 +39,7 @@ function Weather() {
         <div className="meta-data">
           {loading ? (
             <h2>
-              <span> 0 &#176;</span> C{" "}
-              <span className="location-name"></span>
+              <span> 0 &#176;</span> C <span className="location-name"></span>
             </h2>
           ) : (
             <>
@@ -80,46 +79,50 @@ function Weather() {
             </button>
           </Searchbox>
 
-<FirstResult>
-          {loading ? (
-            <Result class="result__profile">
-              <span class="result__name">Loading </span>
-            </Result>
-          ) : (
-            <>
-              {responseData ? (
-                <>
-                  <ResultCard className="firstResult" label="City" data={responseData.name} />
-                  <ResultCard
-                    label="Current Temperature"
-                    data={responseData.main.temp}
-                    unit="C"
-                  />
-                  <ResultCard
-                    label="Maximum Recorded"
-                    data={responseData.main.temp_max}
-                    unit="C"
-                  />
-                  <ResultCard
-                    label="Minimum Recorded"
-                    data={responseData.main.temp_min}
-                    unit="C"
-                  />
-                  <ResultCard
-                    label="Wind Speed"
-                    data={responseData.wind.speed}
-                    unit="Km/h"
-                  />
-                </>
-              ) : (
-                <Result class="result__profile">
-                  <span class="result__name">
-                    Please Enter a Valid City Name..
-                  </span>
-                </Result>
-              )}
-            </>
-          )}
+          <FirstResult>
+            {loading ? (
+              <Result class="result__profile">
+                <span class="result__name">Loading </span>
+              </Result>
+            ) : (
+              <>
+                {responseData ? (
+                  <>
+                    <ResultCard
+                      className="firstResult"
+                      label="City"
+                      data={responseData.name}
+                    />
+                    <ResultCard
+                      label="Current Temperature"
+                      data={responseData.main.temp}
+                      unit="C"
+                    />
+                    <ResultCard
+                      label="Maximum Recorded"
+                      data={responseData.main.temp_max}
+                      unit="C"
+                    />
+                    <ResultCard
+                      label="Minimum Recorded"
+                      data={responseData.main.temp_min}
+                      unit="C"
+                    />
+                    <ResultCard
+                      label="Wind Speed"
+                      data={responseData.wind.speed}
+                      unit="Km/h"
+                    />
+                  </>
+                ) : (
+                  <Result class="result__profile">
+                    <span class="result__name">
+                      Please Enter a Valid City Name..
+                    </span>
+                  </Result>
+                )}
+              </>
+            )}
           </FirstResult>
         </Resultbox>
       </Inputbox>
